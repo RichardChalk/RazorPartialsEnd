@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorPartialsEnd.ViewModels;
 using SkysFormsDemo.Data;
 
 namespace SkysFormsDemo.Pages
@@ -9,14 +10,14 @@ namespace SkysFormsDemo.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _context;
 
-        public class Item
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string Color { get; set; }
-            public string Ean13 { get; set; }
-            public decimal Price { get; set; }
-        }
+        //public class Item
+        //{
+        //    public int Id { get; set; }
+        //    public string Name { get; set; }
+        //    public string Color { get; set; }
+        //    public string Ean13 { get; set; }
+        //    public decimal Price { get; set; }
+        //}
 
         public List<Item> NewItems { get; set; }
 
