@@ -1,0 +1,14 @@
+﻿@page
+@model RazorPartialsEnd.Pages.PopularModel
+@{
+}
+
+<h1>Popular products</h1>
+<div class="gallery">
+    @foreach (var product in Model.PopularItems)
+    {
+        <partial name="_ProductBox" model="@product" />
+    }
+</div>
+
+
