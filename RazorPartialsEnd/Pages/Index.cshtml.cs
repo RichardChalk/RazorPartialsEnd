@@ -20,6 +20,7 @@ namespace SkysFormsDemo.Pages
         //}
 
         public List<Item> NewItems { get; set; }
+        public List<Item> OldItems { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
         {
@@ -30,6 +31,16 @@ namespace SkysFormsDemo.Pages
         public void OnGet()
         {
             NewItems = _context.Products.OrderByDescending(e => e.Created).Take(5)
+                .Select(e => new Item
+                {
+                    Id = e.Id,
+                    Color = e.Color,
+                    Ean13 = e.Ean13,
+                    Name = e.Name,
+                    Price = e.Price
+                }).ToList();
+
+            OldItems = _context.Products.OrderBy(e => e.Created).Take(5)
                 .Select(e => new Item
                 {
                     Id = e.Id,
